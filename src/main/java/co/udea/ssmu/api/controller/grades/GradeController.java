@@ -29,14 +29,14 @@ public class GradeController {
         this.gradeFacade = gradeFacade;
     }
 
-    @GetMapping("/{studentId}")
+    @GetMapping("/{studentId}/v1")
     public List<GradeDTO> getGradesByStudentId(@PathVariable Integer studentId) {
         List<GradeDTO> gradeNames = gradeFacade.getAllGradesByStudentId(studentId);
         gradeNames.sort(Comparator.comparing(GradeDTO::getId));
         return gradeNames;
     }
 
-    @PostMapping("/create")
+    @PostMapping("/create/v1")
     public ResponseEntity<GradeDTO> createGrade(@Valid @RequestBody GradeDTO gradeDTO) {
         GradeDTO createdGrade = gradeFacade.createGrade(gradeDTO);
         return new ResponseEntity<>(createdGrade, HttpStatus.CREATED);

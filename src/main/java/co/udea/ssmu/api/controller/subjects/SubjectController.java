@@ -24,14 +24,14 @@ public class SubjectController {
         this.subjectFacade = subjectFacade;
     }
 
-    @GetMapping("/all")
+    @GetMapping("/all/v1")
     public List<SubjectDTO> getSubjectNames() {
         List<SubjectDTO> subjectNames = subjectFacade.getAllSubjects();
         subjectNames.sort(Comparator.comparing(SubjectDTO::getId));
         return subjectNames;
     }
 
-    @GetMapping("/all/{id}")
+    @GetMapping("/all/{id}/v1")
     public SubjectDTO getSubject(@PathVariable Integer id) {
         return subjectFacade.getSubject(id);
     }

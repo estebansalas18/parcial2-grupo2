@@ -31,7 +31,7 @@ public class StudentController {
         return studentNames;
     }
 
-    @GetMapping("/names/{id}")
+    @GetMapping("/names/{id}/v1")
     public StudentDTO getStudent(@PathVariable Integer id) {
         return studentFacade.getStudent(id);
     }
