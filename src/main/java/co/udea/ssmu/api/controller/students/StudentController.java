@@ -24,7 +24,7 @@ public class StudentController {
         this.studentFacade = studentFacade;
     }
 
-    @GetMapping("/names")
+    @GetMapping("/names/v1")
     public List<StudentDTO> getStudentNames() {
         List<StudentDTO> studentNames = studentFacade.getAllStudents();
         studentNames.sort(Comparator.comparing(StudentDTO::getId));
